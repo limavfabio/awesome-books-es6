@@ -1,5 +1,4 @@
-/* eslint-disable max-classes-per-file */
-
+import BooksClass from "./BooksClass.js"; 
 // ----------------- Variables
 
 // Variable to hold the outputs
@@ -14,12 +13,6 @@ const addBookLink = document.getElementById('add-book');
 const contactNavlink = document.getElementById('contacts');
 const year = document.getElementById('date');
 
-// Create an array of objects for the books information
-class BooksClass {
-  constructor() {
-    return [];
-  }
-}
 // Create a new books object
 const books = new BooksClass();
 
