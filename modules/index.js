@@ -28,15 +28,8 @@ class Book {
     booksContainer.innerHTML += `<div class="book-card">
       <div class="book-title"><strong>"${books[index].title}"</strong>&nbsp;by</div>
       <div class="book-author">${books[index].author}</div>
-      <button class="card-remove-button" onclick="Book.removeCard(${index})">Remove</button>
+      <button class="card-remove-button">Remove</button>
       </div>`;
-  }
-
-  // A Method to remove current object from the array
-  static removeCard(index) {
-    books.splice(index, 1);
-    localStorage.setItem('books', JSON.stringify(books));
-    Book.reloadBooks();
   }
 
   // A Method to reload the books cards
@@ -46,7 +39,7 @@ class Book {
       booksContainer.innerHTML += `<div class="book-card">
       <div class="book-title"><strong>"${books[index].title}"</strong>&nbsp;by</div>
       <div class="book-author">${books[index].author}</div>
-      <button class="card-remove-button" onclick="Book.removeCard(${index})">Remove</button>
+      <button class="card-remove-button">Remove</button>
       </div>`;
     }
   }
@@ -71,6 +64,17 @@ addBtn.addEventListener('click', () => {
   Book.loadBook(books.length - 1);
   localStorage.setItem('books', JSON.stringify(books));
 });
+
+// A click listener for the remove button to remove the book card
+booksContainer.addEventListener('click', (e) => {
+  if (e.target.classList.contains('card-remove-button')) {
+    const bookCard = e.target.parentElement;
+    booksContainer.removeChild(bookCard);
+    const bookIndex = books.findIndex((book) => book.title === bookCard.querySelector('.book-title').innerText);
+    books.splice(bookIndex, 1);
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+} );
 
 const dateTime = new Date(Date.now());
 year.textContent = dateTime.toUTCString();
