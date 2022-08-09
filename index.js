@@ -2,7 +2,7 @@ import BooksClass from './modules/BooksClass.js';
 import { navigationOptions } from './modules/navigation.js';
 import Book from './modules/Book.js';
 import * as variable from './modules/variables.js';
-
+import { DateTime } from "./modules/luxon.min.js";
 // Create a new books object
 export const books = new BooksClass();
 
@@ -42,5 +42,7 @@ variable.booksContainer.addEventListener('click', (e) => {
   }
 });
 
-const dateTime = new Date(Date.now());
-variable.year.textContent = dateTime.toUTCString();
+// ------------------- Clock -------------------
+// Get the current date and time and set it to the clock variable
+const dateTime = DateTime.now();
+variable.clock.textContent = `${dateTime.toLocaleString(DateTime.DATETIME_MED)}`;

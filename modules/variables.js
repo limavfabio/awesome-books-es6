@@ -5,4 +5,4 @@ export const titleInput = document.getElementById('title-input');
 export const authorInput = document.getElementById('author-input');
 
 // Clock variables
-export const year = document.getElementById('date');
+export const clock = document.getElementById('date');
