@@ -1,4 +1,4 @@
-import BooksClass from "./BooksClass.js"; 
+import BooksClass from "./modules/BooksClass.js"; 
 // ----------------- Variables
 
 // Variable to hold the outputs
