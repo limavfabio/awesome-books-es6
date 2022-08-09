@@ -1,10 +1,10 @@
 import BooksClass from './modules/BooksClass.js';
-import { navigationOptions } from './modules/navigation.js';
-import Book from './modules/Book.js';
+import navigationOptions from './modules/navigation.js'; // eslint-disable-line no-unused-vars
+import Book from './modules/Book.js'; // eslint-disable-line import/no-cycle
 import * as variable from './modules/variables.js';
-import { DateTime } from "./modules/luxon.min.js";
+import { DateTime } from './modules/luxon.min.js';
 // Create a new books object
-export const books = new BooksClass();
+export const books = new BooksClass(); // eslint-disable-line import/prefer-default-export
 
 // ------------------- Functions -------------------
 
@@ -22,7 +22,7 @@ const addBtn = document.querySelector('#add-btn');
 addBtn.addEventListener('click', () => {
   const newBook = new Book(
     variable.titleInput.value,
-    variable.authorInput.value
+    variable.authorInput.value,
   );
   books.push(newBook);
   Book.loadBook(books.length - 1);
@@ -35,7 +35,7 @@ variable.booksContainer.addEventListener('click', (e) => {
     const bookCard = e.target.parentElement;
     variable.booksContainer.removeChild(bookCard);
     const bookIndex = books.findIndex(
-      (book) => book.title === bookCard.querySelector('.book-title').innerText
+      (book) => book.title === bookCard.querySelector('.book-title').innerText,
     );
     books.splice(bookIndex, 1);
     localStorage.setItem('books', JSON.stringify(books));

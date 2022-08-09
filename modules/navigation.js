@@ -6,8 +6,10 @@ const contactLink = document.querySelector('#contact-link');
 const booksList = document.querySelector('#books-list');
 const newBook = document.querySelector('#new-book');
 const contactSection = document.querySelector('#contact-section');
+let navigationOptions = {};
 
-export const navigationOptions = {
+// eslint-disable-next-line no-unused-vars
+export default navigationOptions = {
   // A click listener for the list link to show the books cards
   list: listLink.addEventListener('click', () => {
     booksList.style.display = 'block';
